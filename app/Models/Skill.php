@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Skill extends Model
 {
     use HasFactory;
+
+    function project() {
+        return $this->belongsToMany(Project::class);
+    }
+
+    function users() {
+        return $this->belongsToMany(User::class,'user_skill');
+    }
 }
